@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-image:url({{url_for('static', filename='bgpic.jpg')}})
+            }
+            b,h1{
+                color: rgb(219, 166, 150);
+                font-family:Verdana, Geneva, Tahoma, sans-serif;
+            }
+            input{
+                color: rgb(44, 20, 9);
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                background-color: rgb(249, 249, 239);
+                border-style: none;
+                
+            }
+        </style>
+    </head>
+    <body>
+
+        <center>
+
+        <h1> shirt size detection </h1><br>
+        
+        <form method="POST", action="{{url_for('home')}}">
+           <b> age :  <input type="text", name='a'> <br><br>
+            shoe size :  <input type="text", name='b'> <br><br>
+            height :  <input type="text", name='c'> <br><br>
+            weight : <input type="text", name='d'> <br><br><br></b>
+            <input type="submit" , value='predict' >
+        </form>
+
+        
+    </center>
+
+    </body>
+</html>
