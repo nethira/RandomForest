@@ -13,6 +13,9 @@ with open('shirt_chest_width_model','rb') as f:
 with open('shirt_waist_width_model','rb') as f:
      mp2=pickle.load(f)
 
+with open('sleeve_length_model','rb') as f:
+     mp3=pickle.load(f)
+
 app=Flask(__name__)
 
 @app.route('/')
@@ -43,8 +46,9 @@ def home():
     print("type is" ,type(pred_shirt_length))
     pred_shirt_chest_width=mp1.predict(datapoint).tolist()
     pred_shirt_waist_width=mp2.predict(datapoint).tolist()
-    return jsonify({'shirt_length': pred_shirt_length, 'shirt_chest': pred_shirt_chest_width, 'shirt_waist': pred_shirt_waist_width})
-#     return render_template('after.html', data1=pred_shirt_length,data2=pred_shirt_chest_width,data3=pred_shirt_waist_width)
+    pred_sleeve_length=mp3.predict(datapoint).tolist()
+    return jsonify({'shirt_length': pred_shirt_length, 'shirt_chest': pred_shirt_chest_width, 'shirt_waist': pred_shirt_waist_width,'shirt_sleeve':pred_sleeve_length})
+#     return render_template('after.html', data1=pred_shirt_length,data2=pred_shirt_chest_width,data3=pred_shirt_waist_width,data4=pred_sleeve_length)
 
 
 
