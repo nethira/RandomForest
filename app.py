@@ -34,12 +34,12 @@ def home():
     data2 = data['shoe_size']
     data3 = data['height']
     data4 = data['weight']
-    data5=0
-    data6=0
-    data7=1
-    data8=0
-    data9=1
-    data10=0
+    data5= data['body_athletic']
+    data6= data['body_big']
+    data7= data['body_regular']
+    data8= data['body_slim']
+    data9= data['fit_fitted']
+    data10= data['fit_regular']
     print(data1,data2,data3,data4)
     datapoint = np.array([[data1, data2, data3, data4,data5,data6,data7,data8,data9,data10]])
     pred_shirt_length=mp.predict(datapoint).tolist()
@@ -47,7 +47,8 @@ def home():
     pred_shirt_chest_width=mp1.predict(datapoint).tolist()
     pred_shirt_waist_width=mp2.predict(datapoint).tolist()
     pred_sleeve_length=mp3.predict(datapoint).tolist()
-    return jsonify({'shirt_length': pred_shirt_length, 'shirt_chest': pred_shirt_chest_width, 'shirt_waist': pred_shirt_waist_width,'shirt_sleeve':pred_sleeve_length})
+    return jsonify({'shirt_length': pred_shirt_length, 'shirt_chest': pred_shirt_chest_width, 
+    'shirt_waist': pred_shirt_waist_width,'shirt_sleeve':pred_sleeve_length})
 #     return render_template('after.html', data1=pred_shirt_length,data2=pred_shirt_chest_width,data3=pred_shirt_waist_width,data4=pred_sleeve_length)
 
 
